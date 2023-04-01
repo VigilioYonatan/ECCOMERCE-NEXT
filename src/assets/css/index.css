@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    scroll-behavior: smooth;
+}
+.modal-open {
+    transform: translateX(-20rem);
+    transition: transform 0.3s;
+}
+
+.modal-close {
+    transform: translateX(0rem);
+    transition: transform 0.3s;
+}
+
+.show {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+.hidden {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.text-responsive {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.hover-button::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    display: block;
+    height: 2px;
+    width: 0%;
+    @apply bg-primary;
+    transition: all 0.2s ease;
+}
+.hover-button:hover::after {
+    width: 100%;
+}
