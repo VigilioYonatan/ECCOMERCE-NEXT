@@ -7,9 +7,13 @@ import { Fragment, RefObject } from "react";
 import { HrExtra } from "../extras/Hr.extra";
 import { webNavs } from "~/utils/client/navs/web.nav";
 import dynamic from "next/dynamic";
-const NavDynamic = dynamic(() => import("../dynamics/Nav.dynamic"), {
-    ssr: false,
-});
+import { PortalExtra } from "../extras/Portal.extra";
+const NavResponsiveDynamic = dynamic(
+    () => import("../dynamics/NavResponsive.dynamic"),
+    {
+        ssr: false,
+    }
+);
 type WebHeaderResponsiveProps = {
     state: boolean;
     refs: {
@@ -23,16 +27,12 @@ export const WebResponsiveHeader = ({
     onClose,
 }: WebHeaderResponsiveProps) => {
     return (
-        <div
-            className={`${
-                state ? "show" : "hidden"
-            } fixed top-0 left-0 right-0 md:hidden z-50 bottom-0 bg-black bg-opacity-60`}
-        >
+        <PortalExtra isOpen={state}>
             <nav
                 ref={refs.node as RefObject<HTMLDivElement>}
                 className={`${
                     state ? "modal-close" : "modal-open"
-                }  bg-paper-dark shadow-sm h-screen   sm:w-[300px]`}
+                }  dark:bg-paper-dark bg-paper-light shadow-sm h-screen sm:w-[300px]`}
             >
                 <div
                     onClick={onClose}
@@ -54,7 +54,7 @@ export const WebResponsiveHeader = ({
                     <HrExtra />
                     {webNavs.map(({ path, title }) => (
                         <Fragment key={title}>
-                            <NavDynamic path={path} title={title} />
+                            <NavResponsiveDynamic path={path} title={title} />
                             <HrExtra />
                         </Fragment>
                     ))}
@@ -69,6 +69,6 @@ export const WebResponsiveHeader = ({
                     </div>
                 </div>
             </nav>
-        </div>
+        </PortalExtra>
     );
 };

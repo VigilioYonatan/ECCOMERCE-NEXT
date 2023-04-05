@@ -1,10 +1,13 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { TerciaryButton } from "~/components/buttons/Terciary.button";
 const StartsExtra = dynamic(() => import("~/components/extras/Starts.extra"), {
     ssr: false,
 });
 
-type ProductFooterComponentProps = { children: JSX.Element | JSX.Element[] };
+export type ProductFooterComponentProps = {
+    children: JSX.Element | JSX.Element[];
+};
 export function ProductFooterComponent({
     children,
 }: ProductFooterComponentProps) {
@@ -15,7 +18,7 @@ export function ProductFooterTitleComponent() {
     return (
         <Link
             href={"/"}
-            className="text-sm text-center dark:text-white hover:text-primary text-responsive "
+            className="text-sm dark:text-white hover:text-primary text-responsive "
         >
             Microsoft Xbox One S Controller – Gears 5 Kait Lorem, ipsum dolor.
         </Link>
@@ -33,7 +36,10 @@ export function ProductFooterPriceComponent() {
     return (
         <div className="flex items-center gap-2">
             <p className="font-semibold text-sm dark:text-white">$109.00</p>
-            <p className="text-white text-xs line-through">$139.00</p>
+            <p className="dark:text-white text-xs line-through">$139.00</p>
         </div>
     );
+}
+export function ProductFooterButtonComponent() {
+    return <TerciaryButton title="Add To Cart" />;
 }

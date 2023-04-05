@@ -1,5 +1,6 @@
 import { FacebookIco } from "~/assets/icos/Facebook.ico";
 import { UpButton } from "../buttons/Up.button";
+import { HrExtra } from "../extras/Hr.extra";
 
 export const WebFooter = () => {
     return (
@@ -40,6 +41,7 @@ export const WebFooter = () => {
                             </div>
                         </div>
                     </div>
+                    <HrExtra classname="sm:hidden" />
                     <div className="grid grid-cols-2 sm:grid-cols-4  gap-5 justify-between w-full">
                         <ul className="flex flex-col gap-2">
                             <li className="dark:text-white font-semibold ">

@@ -16,6 +16,8 @@
         "incremental": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
+        "strictPropertyInitialization": false,
+        "noUnusedParameters": true,
         "paths": {
             "~/*": ["./src/*"]
         }

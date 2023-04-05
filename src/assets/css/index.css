@@ -18,7 +18,7 @@
     opacity: 1;
     transition: opacity 0.4s ease-in-out;
 }
-.hidden {
+.hidde {
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
 }
@@ -27,6 +27,12 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.text-responsive-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
     overflow: hidden;
 }
 
@@ -42,4 +48,15 @@
 }
 .hover-button:hover::after {
     width: 100%;
+}
+
+/* .hover-dropwdown {
+} */
+.hover-dropwdown-child {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.hover-dropwdown:hover .hover-dropwdown-child {
+    opacity: 1;
+    transition: opacity 0.2s ease;
 }

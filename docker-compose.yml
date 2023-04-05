@@ -1,0 +1,15 @@
+version: "3"
+services:
+    db:
+        image: mysql:8.0.2
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: dokixd123
+            MYSQL_DATABASE: eccomerce
+            MYSQL_USER: root
+            MYSQL_PASSWORD: doki
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./mysql:/var/lib/mysql

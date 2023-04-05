@@ -5,6 +5,7 @@ export default function Document() {
         <Html lang="en">
             <Head />
             <body className="bg-background-light dark:bg-background-dark">
+                <div id="portal" />
                 <Main />
                 <NextScript />
             </body>

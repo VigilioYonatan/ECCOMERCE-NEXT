@@ -1,5 +1,5 @@
 import { useState, useEffect, RefObject, useRef } from "react";
-type UseDropwdownReturn<T> = {
+export type UseDropwdownReturn<T> = {
     state: boolean;
     methods: {
         onOpen(): void;
@@ -8,7 +8,7 @@ type UseDropwdownReturn<T> = {
     };
     refs: { node: RefObject<T> };
 };
-function useDropwdown<T extends object>(): UseDropwdownReturn<T> {
+export function useDropwdown<T extends object>(): UseDropwdownReturn<T> {
     const node = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
     function onOpen() {
@@ -23,6 +23,8 @@ function useDropwdown<T extends object>(): UseDropwdownReturn<T> {
     }
     useEffect(() => {
         if (typeof window !== "undefined") {
+            console.log("aca");
+
             const documentElement = document.documentElement;
             const actionEvent = (ev: globalThis.MouseEvent) => {
                 if (node.current && (node.current as any).contains(ev.target)) {
@@ -47,5 +49,3 @@ function useDropwdown<T extends object>(): UseDropwdownReturn<T> {
         refs: { node },
     };
 }
-
-export default useDropwdown;

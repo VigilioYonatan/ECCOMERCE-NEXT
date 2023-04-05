@@ -21,4 +21,5 @@ function NavDynamic({ path, title }: NavDynamicProps) {
         </li>
     );
 }
+
 export default NavDynamic;

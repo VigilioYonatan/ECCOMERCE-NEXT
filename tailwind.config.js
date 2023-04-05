@@ -17,6 +17,12 @@ module.exports = {
                 hrColor: "#3F3F3F",
                 gray: "#3F3F3F",
                 gray2: "#848684",
+                tansparent: "rgba(0, 0, 0, 0)",
+                error: "#ef4444",
+                success: "#10B981",
+                orange: "#F97316",
+                blue: "#0284C7",
+                pink: "#EC4899",
             },
             textColor: {
                 light: "#fff",
@@ -25,4 +31,5 @@ module.exports = {
         },
     },
     plugins: [],
+    darkMode: ["class"],
 };

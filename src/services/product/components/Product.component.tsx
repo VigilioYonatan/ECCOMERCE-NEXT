@@ -2,11 +2,17 @@ import { createContext } from "react";
 
 const ProductContext = createContext({});
 
-type ProductComponentProps = { children: JSX.Element | JSX.Element[] };
-export function ProductComponent({ children }: ProductComponentProps) {
+export type ProductComponentProps = {
+    className?: string;
+    children: JSX.Element | JSX.Element[];
+};
+export function ProductComponent({
+    className = "",
+    children,
+}: ProductComponentProps) {
     return (
         <ProductContext.Provider value={{}}>
-            <div className="group w-9/12 sm:w-[200px] ">{children}</div>;
+            <div className={`group ${className}`}>{children}</div>
         </ProductContext.Provider>
     );
 }

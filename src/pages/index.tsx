@@ -3,15 +3,16 @@ import { PrincipalCarousel } from "~/components/carousels/Principal.carousel";
 import { arrayFrom } from "~/utils/helpers";
 import { HrExtra } from "~/components/extras/Hr.extra";
 import { SecondaryButton } from "~/components/buttons/Secondary.button";
+import { ProductCard } from "~/services/product/components";
+import { TopUserVendorComponent } from "~/services/user/components/TopUserVendor.component";
+import { CategoriaCarouselComponent } from "~/services/categoria/components/CategoriaCarousel.component";
 import StarIcon from "@heroicons/react/24/outline/StarIcon";
 import ChevronRightIcon from "@heroicons/react/24/outline/ChevronRightIcon";
-import { ProductComponent } from "~/services/product/components/Product.component";
-import { ProductCard } from "~/services/product/components";
 export default function Home() {
     return (
-        <WebLayout title="Inicio">
+        <WebLayout titulo="Inicio">
             <PrincipalCarousel />
-            <div className="container mx-auto px-2 flex flex-col gap-4 my-6">
+            <div className="container mx-auto px-2 flex flex-col gap-6 my-6">
                 <section className=" py-3 px-5 bg-paper-light dark:bg-paper-dark">
                     <div className="flex flex-col md:flex-row items-center  py-2">
                         <h2 className="py-4 text-xl text-center font-semibold dark:text-white text-black">
@@ -60,10 +61,10 @@ export default function Home() {
                             alt=""
                         />
                         <div className="flex flex-col gap-4  p-4 w-1/2">
-                            <h2 className="text-white text-2xl font-bold">
+                            <h2 className="text-white text-xl md:text-2xl font-bold">
                                 Meet Alpinerx Blue New Version
                             </h2>
-                            <p className="text-sm text-white font-semibold">
+                            <p className="text-sm text-responsive-3 text-white font-semibold">
                                 Lorem ipsum dolor sit amet consectetur,
                                 adipisicing elit. Incidunt, nesciunt.
                             </p>
@@ -79,10 +80,10 @@ export default function Home() {
                             alt=""
                         />
                         <div className="flex flex-col gap-4  p-4 w-1/2">
-                            <h2 className="text-white text-2xl font-bold">
+                            <h2 className="text-white text-xl md:text-2xl font-bold">
                                 Meet Alpinerx Blue New Version
                             </h2>
-                            <p className="text-sm text-white font-semibold">
+                            <p className="text-sm text-responsive-3 text-white font-semibold">
                                 Lorem ipsum dolor sit amet consectetur,
                                 adipisicing elit. Incidunt, nesciunt.
                             </p>
@@ -101,16 +102,16 @@ export default function Home() {
                         <div className="flex items-center gap-2">
                             <p className="text-gray dark:text-white">End In:</p>
                             <div className="flex gap-2">
-                                <p className="dark:text-white text-sm font-bold bg-primary px-2 py-2">
+                                <p className="text-white text-sm font-bold rounded-md bg-primary px-2 py-2">
                                     274
                                 </p>
-                                <p className="dark:text-white text-sm font-bold bg-primary px-2 py-2">
+                                <p className="text-white text-sm rounded-md font-bold bg-primary px-2 py-2">
                                     00
                                 </p>
-                                <p className="dark:text-white text-sm font-bold bg-primary px-2 py-2">
+                                <p className="text-white rounded-md text-sm font-bold bg-primary px-2 py-2">
                                     38
                                 </p>
-                                <p className="dark:text-white text-sm font-bold bg-primary px-2 py-2">
+                                <p className="text-white rounded-md text-sm font-bold bg-primary px-2 py-2">
                                     24
                                 </p>
                             </div>
@@ -123,7 +124,7 @@ export default function Home() {
                         </div>
                     </div>
                     <HrExtra />
-                    <div className="flex flex-wrap justify-center gap-4 m-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 justify-center gap-4 m-4">
                         {arrayFrom().map((_, i) => (
                             <ProductCard key={i}>
                                 <ProductCard.Header>
@@ -136,6 +137,180 @@ export default function Home() {
                                 </ProductCard.Footer>
                             </ProductCard>
                         ))}
+                    </div>
+                </section>
+                {/* Top vendors */}
+                <section className=" py-3 px-5 bg-paper-light dark:bg-paper-dark">
+                    <div className="flex flex-col md:flex-row  md:items-center py-3 justify-between gap-2">
+                        <h2 className="text-2xl font-semibold dark:text-white">
+                            Top Vendors
+                        </h2>
+
+                        <div className="flex items-center gap-2">
+                            <p className="dark:text-white font-semibold text-sm">
+                                View All
+                            </p>
+                            <ChevronRightIcon className="w-4 h-4 dark:text-white" />
+                        </div>
+                    </div>
+                    <HrExtra />
+                    <div className="flex flex-wrap justify-center gap-4 m-4">
+                        <TopUserVendorComponent />
+                        <TopUserVendorComponent />
+                        <TopUserVendorComponent />
+                    </div>
+                </section>
+                {/*  */}
+                <div className="flex flex-col xl:flex-row  gap-3">
+                    <section className=" py-3 px-5 bg-paper-light dark:bg-paper-dark">
+                        <div className="flex flex-col md:flex-row  md:items-center py-3 justify-between gap-2">
+                            <h2 className="text-2xl font-semibold dark:text-white">
+                                New Products
+                            </h2>
+                            <div className="flex items-center gap-2">
+                                <p className="dark:text-white font-semibold text-sm">
+                                    View All
+                                </p>
+                                <ChevronRightIcon className="w-4 h-4 dark:text-white" />
+                            </div>
+                        </div>
+
+                        <CategoriaCarouselComponent />
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 justify-center gap-4 m-4">
+                            {arrayFrom(13).map((_, i) => (
+                                <ProductCard key={i}>
+                                    <ProductCard.Header>
+                                        <ProductCard.HeaderButtons />
+                                    </ProductCard.Header>
+                                    <ProductCard.Footer>
+                                        <ProductCard.FooterTitle />
+                                        <ProductCard.FooterStart />
+                                        <ProductCard.FooterPrice />
+                                    </ProductCard.Footer>
+                                </ProductCard>
+                            ))}
+                        </div>
+                    </section>
+                    {/* Best Seller*/}
+                    <section className=" py-3 px-5 bg-paper-light dark:bg-paper-dark">
+                        <div className="flex flex-col md:flex-row  md:items-center py-3 justify-between gap-2">
+                            <h2 className="text-2xl font-semibold dark:text-white">
+                                Best Seller
+                            </h2>
+                            <div className="flex items-center gap-2">
+                                <p className="dark:text-white font-semibold text-sm">
+                                    View All
+                                </p>
+                                <ChevronRightIcon className="w-4 h-4 dark:text-white" />
+                            </div>
+                        </div>
+                        <HrExtra />
+                        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-1 justify-center gap-4 m-4">
+                            {arrayFrom(7).map((_, i) => (
+                                <ProductCard
+                                    className="flex flex-col lg:flex-row gap-2 items-center"
+                                    key={i}
+                                >
+                                    <ProductCard.Header>
+                                        <></>
+                                    </ProductCard.Header>
+
+                                    <ProductCard.Footer>
+                                        <ProductCard.FooterTitle />
+                                        <ProductCard.FooterStart />
+                                        <ProductCard.FooterPrice />
+                                        <ProductCard.FooterButton />
+                                    </ProductCard.Footer>
+                                </ProductCard>
+                            ))}
+                        </div>
+                    </section>
+                </div>
+                <section className=" py-3 px-5 bg-paper-light dark:bg-paper-dark">
+                    <div className="flex flex-col md:flex-row  md:items-center py-3 justify-between gap-2">
+                        <h2 className="text-2xl font-semibold dark:text-white">
+                            Recommended to you
+                        </h2>
+
+                        <div className="flex items-center gap-2">
+                            <p className="dark:text-white font-semibold text-sm">
+                                View All
+                            </p>
+                            <ChevronRightIcon className="w-4 h-4 dark:text-white" />
+                        </div>
+                    </div>
+                    <HrExtra />
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 justify-center gap-4 m-4">
+                        {arrayFrom().map((_, i) => (
+                            <ProductCard key={i}>
+                                <ProductCard.Header>
+                                    <ProductCard.HeaderButtons />
+                                </ProductCard.Header>
+                                <ProductCard.Footer>
+                                    <ProductCard.FooterTitle />
+                                    <ProductCard.FooterStart />
+                                    <ProductCard.FooterPrice />
+                                </ProductCard.Footer>
+                            </ProductCard>
+                        ))}
+                    </div>
+                </section>
+                <section className=" py-3 px-5 flex flex-wrap bg-paper-light dark:bg-paper-dark justify-between">
+                    <div className="flex items-center gap-4 p-8">
+                        <img
+                            src="https://demo-60.woovinapro.com/wp-content/uploads/2022/03/icon1.png"
+                            alt=""
+                        />
+                        <div className="">
+                            <p className="dark:text-white font-semibold">
+                                100% Genuine
+                            </p>
+                            <p className="text-white text-sm">
+                                For all oders over $99
+                            </p>
+                        </div>
+                    </div>
+                    <div className="flex items-center gap-4 p-8">
+                        <img
+                            src="https://demo-60.woovinapro.com/wp-content/uploads/2022/03/icon3.png"
+                            alt=""
+                        />
+                        <div className="">
+                            <p className="dark:text-white font-semibold">
+                                Secure Payment
+                            </p>
+                            <p className="text-white text-sm">
+                                100% secure payment
+                            </p>
+                        </div>
+                    </div>
+                    <div className="flex items-center gap-4 p-8">
+                        <img
+                            src="https://demo-60.woovinapro.com/wp-content/uploads/2022/03/icon3.png"
+                            alt=""
+                        />
+                        <div className="">
+                            <p className="dark:text-white font-semibold">
+                                Secure Payment
+                            </p>
+                            <p className="text-white text-sm">
+                                100% secure payment
+                            </p>
+                        </div>
+                    </div>
+                    <div className="flex items-center gap-4 p-8">
+                        <img
+                            src="https://demo-60.woovinapro.com/wp-content/uploads/2022/03/icon3.png"
+                            alt=""
+                        />
+                        <div className="">
+                            <p className="dark:text-white font-semibold">
+                                Secure Payment
+                            </p>
+                            <p className="text-white text-sm">
+                                100% secure payment
+                            </p>
+                        </div>
                     </div>
                 </section>
             </div>
